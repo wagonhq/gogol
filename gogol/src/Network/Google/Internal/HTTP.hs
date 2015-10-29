@@ -14,7 +14,6 @@
 --
 module Network.Google.Internal.HTTP where
 
-
 import           Control.Lens
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
@@ -43,78 +42,78 @@ import           Network.HTTP.Types
 --
 -- "resumable" or "multipart" needs to go into the "uploadType" param
 
-perform :: (MonadCatch m, MonadResource m, GoogleRequest a)
-        => Env
-        -> a
-        -> m (Either Error (Rs a))
-perform Env{..} x = catches go handlers
-  where
-    Request {..} = _cliRequest
-    Service {..} = _cliService
+-- perform :: (MonadCatch m, MonadResource m, GoogleRequest a)
+--         => Env
+--         -> a
+--         -> m (Either Error (Rs a))
+-- perform Env{..} x = catches go handlers
+--   where
+--     Request {..} = _cliRequest
+--     Service {..} = _cliService
 
-    Client  {..} = requestClient x
-        & clientService %~ appEndo (getDual _envOverride)
+--     Client  {..} = requestClient x
+--         & clientService %~ appEndo (getDual _envOverride)
 
-    go = liftResourceT $ do
-        (ct, b) <- getContent _rqBody
-        rq      <- authorize (request ct b) _envStore _envLogger _envManager
+--     go = liftResourceT $ do
+--         (ct, b) <- getContent _rqBody
+--         rq      <- authorize (request ct b) _envStore _envLogger _envManager
 
-        logDebug _envLogger rq -- debug:ClientRequest
+--         logDebug _envLogger rq -- debug:ClientRequest
 
-        rs      <- http rq _envManager
+--         rs      <- http rq _envManager
 
-        logDebug _envLogger rs -- debug:ClientResponse
+--         logDebug _envLogger rs -- debug:ClientResponse
 
-        r       <- _cliResponse (responseBody rs)
+--         r       <- _cliResponse (responseBody rs)
 
-        pure $! case r of
-            Right y       -> Right y
-            Left  (e, bs) -> Left . SerializeError $ SerializeError'
-                { _serializeId      = _svcId
-                , _serializeHeaders = responseHeaders rs
-                , _serializeStatus  = responseStatus rs
-                , _serializeMessage = e
-                , _serializeBody    = Just bs
-                }
+--         pure $! case r of
+--             Right y       -> Right y
+--             Left  (e, bs) -> Left . SerializeError $ SerializeError'
+--                 { _serializeId      = _svcId
+--                 , _serializeHeaders = responseHeaders rs
+--                 , _serializeStatus  = responseStatus rs
+--                 , _serializeMessage = e
+--                 , _serializeBody    = Just bs
+--                 }
 
-    request ct b = def
-        { Client.host            = _svcHost
-        , Client.port            = _svcPort
-        , Client.secure          = _svcSecure
-        , Client.checkStatus     = status
-        , Client.responseTimeout = timeout
-        , Client.method          = _cliMethod
-        , Client.path            = path
-        , Client.queryString     = renderQuery True (toList _rqQuery)
-        , Client.requestHeaders  = accept (ct (toList _rqHeaders))
-        , Client.requestBody     = b
-        }
+--     request ct b = def
+--         { Client.host            = _svcHost
+--         , Client.port            = _svcPort
+--         , Client.secure          = _svcSecure
+--         , Client.checkStatus     = status
+--         , Client.responseTimeout = timeout
+--         , Client.method          = _cliMethod
+--         , Client.path            = path
+--         , Client.queryString     = renderQuery True (toList _rqQuery)
+--         , Client.requestHeaders  = accept (ct (toList _rqHeaders))
+--         , Client.requestBody     = b
+--         }
 
-    accept
-         | Just t <- _cliAccept   = ((hAccept, renderHeader t) :)
-         | otherwise              = id
+--     accept
+--          | Just t <- _cliAccept   = ((hAccept, renderHeader t) :)
+--          | otherwise              = id
 
-    path = Text.encodeUtf8
-         . LText.toStrict
-         $ Build.toLazyText (_svcPath <> _rqPath)
+--     path = Text.encodeUtf8
+--          . LText.toStrict
+--          $ Build.toLazyText (_svcPath <> _rqPath)
 
-    status s hs _
-         | _cliCheck s = Nothing
-         | otherwise   = Just . toException . ServiceError $ ServiceError'
-             { _serviceId      = _svcId
-             , _serviceStatus  = s
-             , _serviceHeaders = hs
-             , _serviceBody    = Nothing
-             }
+--     status s hs _
+--          | _cliCheck s = Nothing
+--          | otherwise   = Just . toException . ServiceError $ ServiceError'
+--              { _serviceId      = _svcId
+--              , _serviceStatus  = s
+--              , _serviceHeaders = hs
+--              , _serviceBody    = Nothing
+--              }
 
-    timeout = microseconds <$> _svcTimeout
+--     timeout = microseconds <$> _svcTimeout
 
-    handlers =
-        [ Handler $ err
-        , Handler $ err . TransportError
-        ]
-      where
-        err e = return (Left e)
+--     handlers =
+--         [ Handler $ err
+--         , Handler $ err . TransportError
+--         ]
+--       where
+--         err e = return (Left e)
 
 getContent :: MonadIO m
            => Maybe Payload
