@@ -38,7 +38,6 @@ import           Data.Semigroup       ((<>))
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
-import           Debug.Trace
 import           Gen.Orphans          ()
 import           Gen.Text
 import           Gen.TH
@@ -438,10 +437,9 @@ serviceName :: Service a -> String
 serviceName = Text.unpack . (<> "Service") . toCamel . _sCanonicalName
 
 scopeName :: Service a -> Text -> String
-scopeName s k =
+scopeName s k = Text.unpack . toCamel $
     let y = _sCanonicalName s <> "AllScope"
-     in Text.unpack . toCamel $
-        case Text.split (== '/') k of
+     in case Text.split (== '/') k of
             [] -> y
             xs -> case last xs of
                 "" -> y
