@@ -3,6 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
@@ -43,7 +44,6 @@ import           Data.Foldable                         (foldl')
 import           Data.Monoid
 import           Data.String
 import           Data.Text                             (Text)
-import qualified Data.Text                             as Text
 import qualified Data.Text.Encoding                    as Text
 import           Data.Text.Lazy.Builder                (Builder)
 import qualified Data.Text.Lazy.Builder                as Build
@@ -307,6 +307,7 @@ instance FromJSON a => FromStream JSON a where
 
 class GoogleRequest a where
     type Rs a :: *
+    type Ss a :: [Symbol]
 
     requestClient :: a -> Client (Rs a)
 
