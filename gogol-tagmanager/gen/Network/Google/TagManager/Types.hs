@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -333,29 +334,29 @@ tagManagerService
       "www.googleapis.com"
 
 -- | View your Google Tag Manager containers
-tagmanagerReadonlyScope :: OAuthScope
-tagmanagerReadonlyScope = "https://www.googleapis.com/auth/tagmanager.readonly";
+tagmanagerReadonlyScope :: Proxy '["https://www.googleapis.com/auth/tagmanager.readonly"]
+tagmanagerReadonlyScope = Proxy;
 
 -- | Manage your Google Tag Manager containers
-tagmanagerEditContainersScope :: OAuthScope
-tagmanagerEditContainersScope = "https://www.googleapis.com/auth/tagmanager.edit.containers";
+tagmanagerEditContainersScope :: Proxy '["https://www.googleapis.com/auth/tagmanager.edit.containers"]
+tagmanagerEditContainersScope = Proxy;
 
 -- | Manage your Google Tag Manager accounts
-tagmanagerManageAccountsScope :: OAuthScope
-tagmanagerManageAccountsScope = "https://www.googleapis.com/auth/tagmanager.manage.accounts";
+tagmanagerManageAccountsScope :: Proxy '["https://www.googleapis.com/auth/tagmanager.manage.accounts"]
+tagmanagerManageAccountsScope = Proxy;
 
 -- | Delete your Google Tag Manager containers
-tagmanagerDeleteContainersScope :: OAuthScope
-tagmanagerDeleteContainersScope = "https://www.googleapis.com/auth/tagmanager.delete.containers";
+tagmanagerDeleteContainersScope :: Proxy '["https://www.googleapis.com/auth/tagmanager.delete.containers"]
+tagmanagerDeleteContainersScope = Proxy;
 
 -- | Manage user permissions of your Google Tag Manager data
-tagmanagerManageUsersScope :: OAuthScope
-tagmanagerManageUsersScope = "https://www.googleapis.com/auth/tagmanager.manage.users";
+tagmanagerManageUsersScope :: Proxy '["https://www.googleapis.com/auth/tagmanager.manage.users"]
+tagmanagerManageUsersScope = Proxy;
 
 -- | Publish your Google Tag Manager containers
-tagmanagerPublishScope :: OAuthScope
-tagmanagerPublishScope = "https://www.googleapis.com/auth/tagmanager.publish";
+tagmanagerPublishScope :: Proxy '["https://www.googleapis.com/auth/tagmanager.publish"]
+tagmanagerPublishScope = Proxy;
 
 -- | Manage your Google Tag Manager container versions
-tagmanagerEditContainerversionsScope :: OAuthScope
-tagmanagerEditContainerversionsScope = "https://www.googleapis.com/auth/tagmanager.edit.containerversions";
+tagmanagerEditContainerversionsScope :: Proxy '["https://www.googleapis.com/auth/tagmanager.edit.containerversions"]
+tagmanagerEditContainerversionsScope = Proxy;

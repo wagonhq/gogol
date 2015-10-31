@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -769,9 +770,9 @@ mapsEngineService
       "www.googleapis.com"
 
 -- | View and manage your Google My Maps data
-mapsengineScope :: OAuthScope
-mapsengineScope = "https://www.googleapis.com/auth/mapsengine";
+mapsengineScope :: Proxy '["https://www.googleapis.com/auth/mapsengine"]
+mapsengineScope = Proxy;
 
 -- | View your Google My Maps data
-mapsengineReadonlyScope :: OAuthScope
-mapsengineReadonlyScope = "https://www.googleapis.com/auth/mapsengine.readonly";
+mapsengineReadonlyScope :: Proxy '["https://www.googleapis.com/auth/mapsengine.readonly"]
+mapsengineReadonlyScope = Proxy;

@@ -188,6 +188,8 @@ iilMaxResults
 instance GoogleRequest InventoryItemsList where
         type Rs InventoryItemsList =
              InventoryItemsListResponse
+        type Scopes InventoryItemsList =
+             '["https://www.googleapis.com/auth/dfatrafficking"]
         requestClient InventoryItemsList{..}
           = go _iilProFileId _iilProjectId
               (_iilIds ^. _Default)

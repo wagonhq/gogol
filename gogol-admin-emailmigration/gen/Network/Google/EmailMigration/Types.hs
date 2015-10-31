@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -47,5 +48,5 @@ emailMigrationService
       "www.googleapis.com"
 
 -- | Manage email messages of users on your domain
-emailMigrationScope :: OAuthScope
-emailMigrationScope = "https://www.googleapis.com/auth/email.migration";
+emailMigrationScope :: Proxy '["https://www.googleapis.com/auth/email.migration"]
+emailMigrationScope = Proxy;

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -39,5 +40,5 @@ groupsMigrationService
       "www.googleapis.com"
 
 -- | Manage messages in groups on your domain
-appsGroupsMigrationScope :: OAuthScope
-appsGroupsMigrationScope = "https://www.googleapis.com/auth/apps.groups.migration";
+appsGroupsMigrationScope :: Proxy '["https://www.googleapis.com/auth/apps.groups.migration"]
+appsGroupsMigrationScope = Proxy;

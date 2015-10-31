@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -530,21 +531,21 @@ genomicsService
       "genomics.googleapis.com"
 
 -- | View and manage Genomics data
-genomicsScope :: OAuthScope
-genomicsScope = "https://www.googleapis.com/auth/genomics";
+genomicsScope :: Proxy '["https://www.googleapis.com/auth/genomics"]
+genomicsScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;
 
 -- | View Genomics data
-genomicsReadonlyScope :: OAuthScope
-genomicsReadonlyScope = "https://www.googleapis.com/auth/genomics.readonly";
+genomicsReadonlyScope :: Proxy '["https://www.googleapis.com/auth/genomics.readonly"]
+genomicsReadonlyScope = Proxy;
 
 -- | Manage your data in Google Cloud Storage
-devstorageReadWriteScope :: OAuthScope
-devstorageReadWriteScope = "https://www.googleapis.com/auth/devstorage.read_write";
+devstorageReadWriteScope :: Proxy '["https://www.googleapis.com/auth/devstorage.read_write"]
+devstorageReadWriteScope = Proxy;
 
 -- | View and manage your data in Google BigQuery
-bigqueryScope :: OAuthScope
-bigqueryScope = "https://www.googleapis.com/auth/bigquery";
+bigqueryScope :: Proxy '["https://www.googleapis.com/auth/bigquery"]
+bigqueryScope = Proxy;

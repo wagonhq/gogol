@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -227,29 +228,29 @@ gmailService
       "www.googleapis.com"
 
 -- | View and manage your mail
-gmailAllScope :: OAuthScope
-gmailAllScope = "https://mail.google.com/";
+gmailAllScope :: Proxy '["https://mail.google.com/"]
+gmailAllScope = Proxy;
 
 -- | View and modify but not delete your email
-gmailModifyScope :: OAuthScope
-gmailModifyScope = "https://www.googleapis.com/auth/gmail.modify";
+gmailModifyScope :: Proxy '["https://www.googleapis.com/auth/gmail.modify"]
+gmailModifyScope = Proxy;
 
 -- | Manage mailbox labels
-gmailLabelsScope :: OAuthScope
-gmailLabelsScope = "https://www.googleapis.com/auth/gmail.labels";
+gmailLabelsScope :: Proxy '["https://www.googleapis.com/auth/gmail.labels"]
+gmailLabelsScope = Proxy;
 
 -- | Send email on your behalf
-gmailSendScope :: OAuthScope
-gmailSendScope = "https://www.googleapis.com/auth/gmail.send";
+gmailSendScope :: Proxy '["https://www.googleapis.com/auth/gmail.send"]
+gmailSendScope = Proxy;
 
 -- | Insert mail into your mailbox
-gmailInsertScope :: OAuthScope
-gmailInsertScope = "https://www.googleapis.com/auth/gmail.insert";
+gmailInsertScope :: Proxy '["https://www.googleapis.com/auth/gmail.insert"]
+gmailInsertScope = Proxy;
 
 -- | Manage drafts and send emails
-gmailComposeScope :: OAuthScope
-gmailComposeScope = "https://www.googleapis.com/auth/gmail.compose";
+gmailComposeScope :: Proxy '["https://www.googleapis.com/auth/gmail.compose"]
+gmailComposeScope = Proxy;
 
 -- | View your emails messages and settings
-gmailReadonlyScope :: OAuthScope
-gmailReadonlyScope = "https://www.googleapis.com/auth/gmail.readonly";
+gmailReadonlyScope :: Proxy '["https://www.googleapis.com/auth/gmail.readonly"]
+gmailReadonlyScope = Proxy;

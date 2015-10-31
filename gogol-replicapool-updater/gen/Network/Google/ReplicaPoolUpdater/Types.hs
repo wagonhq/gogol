@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -173,17 +174,17 @@ replicaPoolUpdaterService
       "www.googleapis.com"
 
 -- | View your data across Google Cloud Platform services
-cloudPlatformReadOnlyScope :: OAuthScope
-cloudPlatformReadOnlyScope = "https://www.googleapis.com/auth/cloud-platform.read-only";
+cloudPlatformReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform.read-only"]
+cloudPlatformReadOnlyScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;
 
 -- | View and manage replica pools
-replicapoolScope :: OAuthScope
-replicapoolScope = "https://www.googleapis.com/auth/replicapool";
+replicapoolScope :: Proxy '["https://www.googleapis.com/auth/replicapool"]
+replicapoolScope = Proxy;
 
 -- | View replica pools
-replicapoolReadonlyScope :: OAuthScope
-replicapoolReadonlyScope = "https://www.googleapis.com/auth/replicapool.readonly";
+replicapoolReadonlyScope :: Proxy '["https://www.googleapis.com/auth/replicapool.readonly"]
+replicapoolReadonlyScope = Proxy;

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -308,13 +309,13 @@ datastoreService
       "www.googleapis.com"
 
 -- | View your email address
-userinfoEmailScope :: OAuthScope
-userinfoEmailScope = "https://www.googleapis.com/auth/userinfo.email";
+userinfoEmailScope :: Proxy '["https://www.googleapis.com/auth/userinfo.email"]
+userinfoEmailScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;
 
 -- | View and manage your Google Cloud Datastore data
-datastoreScope :: OAuthScope
-datastoreScope = "https://www.googleapis.com/auth/datastore";
+datastoreScope :: Proxy '["https://www.googleapis.com/auth/datastore"]
+datastoreScope = Proxy;

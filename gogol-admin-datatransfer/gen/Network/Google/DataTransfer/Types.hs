@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -84,9 +85,9 @@ dataTransferService
       "www.googleapis.com"
 
 -- | View data transfers between users in your organization
-adminDatatransferReadonlyScope :: OAuthScope
-adminDatatransferReadonlyScope = "https://www.googleapis.com/auth/admin.datatransfer.readonly";
+adminDatatransferReadonlyScope :: Proxy '["https://www.googleapis.com/auth/admin.datatransfer.readonly"]
+adminDatatransferReadonlyScope = Proxy;
 
 -- | View and manage data transfers between users in your organization
-adminDatatransferScope :: OAuthScope
-adminDatatransferScope = "https://www.googleapis.com/auth/admin.datatransfer";
+adminDatatransferScope :: Proxy '["https://www.googleapis.com/auth/admin.datatransfer"]
+adminDatatransferScope = Proxy;

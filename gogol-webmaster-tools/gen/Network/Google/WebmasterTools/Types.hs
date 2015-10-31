@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -171,9 +172,9 @@ webmasterToolsService
       "www.googleapis.com"
 
 -- | View and modify Webmaster Tools data for your verified sites
-webmastersScope :: OAuthScope
-webmastersScope = "https://www.googleapis.com/auth/webmasters";
+webmastersScope :: Proxy '["https://www.googleapis.com/auth/webmasters"]
+webmastersScope = Proxy;
 
 -- | View Webmaster Tools data for your verified sites
-webmastersReadonlyScope :: OAuthScope
-webmastersReadonlyScope = "https://www.googleapis.com/auth/webmasters.readonly";
+webmastersReadonlyScope :: Proxy '["https://www.googleapis.com/auth/webmasters.readonly"]
+webmastersReadonlyScope = Proxy;

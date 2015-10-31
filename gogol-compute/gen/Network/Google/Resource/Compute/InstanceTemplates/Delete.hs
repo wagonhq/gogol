@@ -90,6 +90,9 @@ itdInstanceTemplate
 
 instance GoogleRequest InstanceTemplatesDelete where
         type Rs InstanceTemplatesDelete = Operation
+        type Scopes InstanceTemplatesDelete =
+             '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute"]
         requestClient InstanceTemplatesDelete{..}
           = go _itdProject _itdInstanceTemplate (Just AltJSON)
               computeService

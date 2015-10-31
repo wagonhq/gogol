@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -862,5 +863,5 @@ adExchangeBuyerService
       "www.googleapis.com"
 
 -- | Manage your Ad Exchange buyer account configuration
-adexchangeBuyerScope :: OAuthScope
-adexchangeBuyerScope = "https://www.googleapis.com/auth/adexchange.buyer";
+adexchangeBuyerScope :: Proxy '["https://www.googleapis.com/auth/adexchange.buyer"]
+adexchangeBuyerScope = Proxy;

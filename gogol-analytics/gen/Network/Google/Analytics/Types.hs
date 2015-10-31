@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -1024,26 +1025,26 @@ analyticsService
       "www.googleapis.com"
 
 -- | Manage Google Analytics Account users by email address
-analyticsManageUsersScope :: OAuthScope
-analyticsManageUsersScope = "https://www.googleapis.com/auth/analytics.manage.users";
+analyticsManageUsersScope :: Proxy '["https://www.googleapis.com/auth/analytics.manage.users"]
+analyticsManageUsersScope = Proxy;
 
 -- | Create a new Google Analytics account along with its default property
 -- and view
-analyticsProvisionScope :: OAuthScope
-analyticsProvisionScope = "https://www.googleapis.com/auth/analytics.provision";
+analyticsProvisionScope :: Proxy '["https://www.googleapis.com/auth/analytics.provision"]
+analyticsProvisionScope = Proxy;
 
 -- | View Google Analytics user permissions
-analyticsManageUsersReadonlyScope :: OAuthScope
-analyticsManageUsersReadonlyScope = "https://www.googleapis.com/auth/analytics.manage.users.readonly";
+analyticsManageUsersReadonlyScope :: Proxy '["https://www.googleapis.com/auth/analytics.manage.users.readonly"]
+analyticsManageUsersReadonlyScope = Proxy;
 
 -- | View and manage your Google Analytics data
-analyticsScope :: OAuthScope
-analyticsScope = "https://www.googleapis.com/auth/analytics";
+analyticsScope :: Proxy '["https://www.googleapis.com/auth/analytics"]
+analyticsScope = Proxy;
 
 -- | View your Google Analytics data
-analyticsReadonlyScope :: OAuthScope
-analyticsReadonlyScope = "https://www.googleapis.com/auth/analytics.readonly";
+analyticsReadonlyScope :: Proxy '["https://www.googleapis.com/auth/analytics.readonly"]
+analyticsReadonlyScope = Proxy;
 
 -- | Edit Google Analytics management entities
-analyticsEditScope :: OAuthScope
-analyticsEditScope = "https://www.googleapis.com/auth/analytics.edit";
+analyticsEditScope :: Proxy '["https://www.googleapis.com/auth/analytics.edit"]
+analyticsEditScope = Proxy;

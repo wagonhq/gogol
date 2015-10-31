@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -209,5 +210,5 @@ doubleClickSearchService
       "www.googleapis.com"
 
 -- | View and manage your advertising data in DoubleClick Search
-doubleclicksearchScope :: OAuthScope
-doubleclicksearchScope = "https://www.googleapis.com/auth/doubleclicksearch";
+doubleclicksearchScope :: Proxy '["https://www.googleapis.com/auth/doubleclicksearch"]
+doubleclicksearchScope = Proxy;

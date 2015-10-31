@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -133,5 +134,5 @@ gamesConfigurationService
       "www.googleapis.com"
 
 -- | View and manage your Google Play Developer account
-androidpublisherScope :: OAuthScope
-androidpublisherScope = "https://www.googleapis.com/auth/androidpublisher";
+androidpublisherScope :: Proxy '["https://www.googleapis.com/auth/androidpublisher"]
+androidpublisherScope = Proxy;

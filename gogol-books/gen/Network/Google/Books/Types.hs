@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -869,5 +870,5 @@ booksService
       "www.googleapis.com"
 
 -- | Manage your books
-booksScope :: OAuthScope
-booksScope = "https://www.googleapis.com/auth/books";
+booksScope :: Proxy '["https://www.googleapis.com/auth/books"]
+booksScope = Proxy;

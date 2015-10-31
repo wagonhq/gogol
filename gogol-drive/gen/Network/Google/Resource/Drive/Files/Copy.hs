@@ -168,6 +168,12 @@ fcOCR = lens _fcOCR (\ s a -> s{_fcOCR = a})
 
 instance GoogleRequest FilesCopy where
         type Rs FilesCopy = File
+        type Scopes FilesCopy =
+             '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.appdata",
+               "https://www.googleapis.com/auth/drive.apps.readonly",
+               "https://www.googleapis.com/auth/drive.file",
+               "https://www.googleapis.com/auth/drive.photos.readonly"]
         requestClient FilesCopy{..}
           = go _fcFileId (Just _fcPinned) (Just _fcVisibility)
               _fcTimedTextLanguage

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -928,14 +929,14 @@ gamesService
       "www.googleapis.com"
 
 -- | Know your basic profile info and list of people in your circles.
-plusLoginScope :: OAuthScope
-plusLoginScope = "https://www.googleapis.com/auth/plus.login";
+plusLoginScope :: Proxy '["https://www.googleapis.com/auth/plus.login"]
+plusLoginScope = Proxy;
 
 -- | Share your Google+ profile information and view and manage your game
 -- activity
-gamesScope :: OAuthScope
-gamesScope = "https://www.googleapis.com/auth/games";
+gamesScope :: Proxy '["https://www.googleapis.com/auth/games"]
+gamesScope = Proxy;
 
 -- | View and manage its own configuration data in your Google Drive
-driveAppdataScope :: OAuthScope
-driveAppdataScope = "https://www.googleapis.com/auth/drive.appdata";
+driveAppdataScope :: Proxy '["https://www.googleapis.com/auth/drive.appdata"]
+driveAppdataScope = Proxy;

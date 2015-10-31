@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -394,9 +395,9 @@ appsCalendarService
       "www.googleapis.com"
 
 -- | Manage your calendars
-calendarScope :: OAuthScope
-calendarScope = "https://www.googleapis.com/auth/calendar";
+calendarScope :: Proxy '["https://www.googleapis.com/auth/calendar"]
+calendarScope = Proxy;
 
 -- | View your calendars
-calendarReadonlyScope :: OAuthScope
-calendarReadonlyScope = "https://www.googleapis.com/auth/calendar.readonly";
+calendarReadonlyScope :: Proxy '["https://www.googleapis.com/auth/calendar.readonly"]
+calendarReadonlyScope = Proxy;

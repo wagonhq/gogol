@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -136,25 +137,25 @@ classroomService
       "classroom.googleapis.com"
 
 -- | View your Google Classroom class rosters
-classroomRostersReadonlyScope :: OAuthScope
-classroomRostersReadonlyScope = "https://www.googleapis.com/auth/classroom.rosters.readonly";
+classroomRostersReadonlyScope :: Proxy '["https://www.googleapis.com/auth/classroom.rosters.readonly"]
+classroomRostersReadonlyScope = Proxy;
 
 -- | Manage your Google Classroom classes
-classroomCoursesScope :: OAuthScope
-classroomCoursesScope = "https://www.googleapis.com/auth/classroom.courses";
+classroomCoursesScope :: Proxy '["https://www.googleapis.com/auth/classroom.courses"]
+classroomCoursesScope = Proxy;
 
 -- | View the email addresses of people in your classes
-classroomProfileEmailsScope :: OAuthScope
-classroomProfileEmailsScope = "https://www.googleapis.com/auth/classroom.profile.emails";
+classroomProfileEmailsScope :: Proxy '["https://www.googleapis.com/auth/classroom.profile.emails"]
+classroomProfileEmailsScope = Proxy;
 
 -- | View the profile photos of people in your classes
-classroomProfilePhotosScope :: OAuthScope
-classroomProfilePhotosScope = "https://www.googleapis.com/auth/classroom.profile.photos";
+classroomProfilePhotosScope :: Proxy '["https://www.googleapis.com/auth/classroom.profile.photos"]
+classroomProfilePhotosScope = Proxy;
 
 -- | Manage your Google Classroom class rosters
-classroomRostersScope :: OAuthScope
-classroomRostersScope = "https://www.googleapis.com/auth/classroom.rosters";
+classroomRostersScope :: Proxy '["https://www.googleapis.com/auth/classroom.rosters"]
+classroomRostersScope = Proxy;
 
 -- | View your Google Classroom classes
-classroomCoursesReadonlyScope :: OAuthScope
-classroomCoursesReadonlyScope = "https://www.googleapis.com/auth/classroom.courses.readonly";
+classroomCoursesReadonlyScope :: Proxy '["https://www.googleapis.com/auth/classroom.courses.readonly"]
+classroomCoursesReadonlyScope = Proxy;

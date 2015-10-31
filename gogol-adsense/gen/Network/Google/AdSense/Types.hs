@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -291,9 +292,9 @@ adSenseService
       "www.googleapis.com"
 
 -- | View your AdSense data
-adsenseReadonlyScope :: OAuthScope
-adsenseReadonlyScope = "https://www.googleapis.com/auth/adsense.readonly";
+adsenseReadonlyScope :: Proxy '["https://www.googleapis.com/auth/adsense.readonly"]
+adsenseReadonlyScope = Proxy;
 
 -- | View and manage your AdSense data
-adsenseScope :: OAuthScope
-adsenseScope = "https://www.googleapis.com/auth/adsense";
+adsenseScope :: Proxy '["https://www.googleapis.com/auth/adsense"]
+adsenseScope = Proxy;

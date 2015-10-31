@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -85,10 +86,10 @@ youTubeReportingService
       "youtubereporting.googleapis.com"
 
 -- | View YouTube Analytics reports for your YouTube content
-ytAnalyticsReadonlyScope :: OAuthScope
-ytAnalyticsReadonlyScope = "https://www.googleapis.com/auth/yt-analytics.readonly";
+ytAnalyticsReadonlyScope :: Proxy '["https://www.googleapis.com/auth/yt-analytics.readonly"]
+ytAnalyticsReadonlyScope = Proxy;
 
 -- | View monetary and non-monetary YouTube Analytics reports for your
 -- YouTube content
-ytAnalyticsMonetaryReadonlyScope :: OAuthScope
-ytAnalyticsMonetaryReadonlyScope = "https://www.googleapis.com/auth/yt-analytics-monetary.readonly";
+ytAnalyticsMonetaryReadonlyScope :: Proxy '["https://www.googleapis.com/auth/yt-analytics-monetary.readonly"]
+ytAnalyticsMonetaryReadonlyScope = Proxy;

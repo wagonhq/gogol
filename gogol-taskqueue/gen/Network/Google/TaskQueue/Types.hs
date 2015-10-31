@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -82,9 +83,9 @@ taskQueueService
       "www.googleapis.com"
 
 -- | Consume Tasks from your Taskqueues
-taskqueueConsumerScope :: OAuthScope
-taskqueueConsumerScope = "https://www.googleapis.com/auth/taskqueue.consumer";
+taskqueueConsumerScope :: Proxy '["https://www.googleapis.com/auth/taskqueue.consumer"]
+taskqueueConsumerScope = Proxy;
 
 -- | Manage your Tasks and Taskqueues
-taskqueueScope :: OAuthScope
-taskqueueScope = "https://www.googleapis.com/auth/taskqueue";
+taskqueueScope :: Proxy '["https://www.googleapis.com/auth/taskqueue"]
+taskqueueScope = Proxy;

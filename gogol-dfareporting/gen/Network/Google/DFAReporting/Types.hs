@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -2527,10 +2528,10 @@ dFAReportingService
       "www.googleapis.com"
 
 -- | View and manage DoubleClick for Advertisers reports
-dfareportingScope :: OAuthScope
-dfareportingScope = "https://www.googleapis.com/auth/dfareporting";
+dfareportingScope :: Proxy '["https://www.googleapis.com/auth/dfareporting"]
+dfareportingScope = Proxy;
 
 -- | View and manage your DoubleClick Campaign Manager\'s (DCM) display ad
 -- campaigns
-dfatraffickingScope :: OAuthScope
-dfatraffickingScope = "https://www.googleapis.com/auth/dfatrafficking";
+dfatraffickingScope :: Proxy '["https://www.googleapis.com/auth/dfatrafficking"]
+dfatraffickingScope = Proxy;

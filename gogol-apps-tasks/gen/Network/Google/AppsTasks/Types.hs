@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -86,9 +87,9 @@ appsTasksService
       "www.googleapis.com"
 
 -- | View your tasks
-tasksReadonlyScope :: OAuthScope
-tasksReadonlyScope = "https://www.googleapis.com/auth/tasks.readonly";
+tasksReadonlyScope :: Proxy '["https://www.googleapis.com/auth/tasks.readonly"]
+tasksReadonlyScope = Proxy;
 
 -- | Manage your tasks
-tasksScope :: OAuthScope
-tasksScope = "https://www.googleapis.com/auth/tasks";
+tasksScope :: Proxy '["https://www.googleapis.com/auth/tasks"]
+tasksScope = Proxy;

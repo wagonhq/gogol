@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -385,9 +386,9 @@ bloggerService
       "www.googleapis.com"
 
 -- | Manage your Blogger account
-bloggerScope :: OAuthScope
-bloggerScope = "https://www.googleapis.com/auth/blogger";
+bloggerScope :: Proxy '["https://www.googleapis.com/auth/blogger"]
+bloggerScope = Proxy;
 
 -- | View your Blogger account
-bloggerReadonlyScope :: OAuthScope
-bloggerReadonlyScope = "https://www.googleapis.com/auth/blogger.readonly";
+bloggerReadonlyScope :: Proxy '["https://www.googleapis.com/auth/blogger.readonly"]
+bloggerReadonlyScope = Proxy;

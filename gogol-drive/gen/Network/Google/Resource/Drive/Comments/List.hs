@@ -129,6 +129,10 @@ cllIncludeDeleted
 
 instance GoogleRequest CommentsList where
         type Rs CommentsList = CommentList
+        type Scopes CommentsList =
+             '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
+               "https://www.googleapis.com/auth/drive.readonly"]
         requestClient CommentsList{..}
           = go _cllFileId _cllUpdatedMin _cllPageToken
               (Just _cllMaxResults)

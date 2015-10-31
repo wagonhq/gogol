@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -561,17 +562,17 @@ plusService
       "www.googleapis.com"
 
 -- | View your basic profile info
-userinfoProfileScope :: OAuthScope
-userinfoProfileScope = "https://www.googleapis.com/auth/userinfo.profile";
+userinfoProfileScope :: Proxy '["https://www.googleapis.com/auth/userinfo.profile"]
+userinfoProfileScope = Proxy;
 
 -- | Know your basic profile info and list of people in your circles.
-plusLoginScope :: OAuthScope
-plusLoginScope = "https://www.googleapis.com/auth/plus.login";
+plusLoginScope :: Proxy '["https://www.googleapis.com/auth/plus.login"]
+plusLoginScope = Proxy;
 
 -- | View your email address
-userinfoEmailScope :: OAuthScope
-userinfoEmailScope = "https://www.googleapis.com/auth/userinfo.email";
+userinfoEmailScope :: Proxy '["https://www.googleapis.com/auth/userinfo.email"]
+userinfoEmailScope = Proxy;
 
 -- | Know who you are on Google
-plusMeScope :: OAuthScope
-plusMeScope = "https://www.googleapis.com/auth/plus.me";
+plusMeScope :: Proxy '["https://www.googleapis.com/auth/plus.me"]
+plusMeScope = Proxy;

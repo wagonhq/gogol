@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -135,9 +136,9 @@ appsResellerService
       "www.googleapis.com"
 
 -- | Manage users on your domain
-appsOrderReadonlyScope :: OAuthScope
-appsOrderReadonlyScope = "https://www.googleapis.com/auth/apps.order.readonly";
+appsOrderReadonlyScope :: Proxy '["https://www.googleapis.com/auth/apps.order.readonly"]
+appsOrderReadonlyScope = Proxy;
 
 -- | Manage users on your domain
-appsOrderScope :: OAuthScope
-appsOrderScope = "https://www.googleapis.com/auth/apps.order";
+appsOrderScope :: Proxy '["https://www.googleapis.com/auth/apps.order"]
+appsOrderScope = Proxy;

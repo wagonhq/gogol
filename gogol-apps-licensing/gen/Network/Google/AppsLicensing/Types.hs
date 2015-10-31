@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -56,5 +57,5 @@ appsLicensingService
       "www.googleapis.com"
 
 -- | View and manage Google Apps licenses for your domain
-appsLicensingScope :: OAuthScope
-appsLicensingScope = "https://www.googleapis.com/auth/apps.licensing";
+appsLicensingScope :: Proxy '["https://www.googleapis.com/auth/apps.licensing"]
+appsLicensingScope = Proxy;

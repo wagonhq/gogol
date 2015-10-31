@@ -128,6 +128,10 @@ rlIncludeDeleted
 
 instance GoogleRequest RepliesList where
         type Rs RepliesList = CommentReplyList
+        type Scopes RepliesList =
+             '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
+               "https://www.googleapis.com/auth/drive.readonly"]
         requestClient RepliesList{..}
           = go _rlFileId _rlCommentId _rlPageToken
               (Just _rlMaxResults)

@@ -102,6 +102,8 @@ plMaxResults
 instance GoogleRequest ProductstatusesList where
         type Rs ProductstatusesList =
              ProductstatusesListResponse
+        type Scopes ProductstatusesList =
+             '["https://www.googleapis.com/auth/content"]
         requestClient ProductstatusesList{..}
           = go _plMerchantId _plPageToken _plMaxResults
               (Just AltJSON)

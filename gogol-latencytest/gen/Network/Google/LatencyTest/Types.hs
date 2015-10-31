@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -74,5 +75,5 @@ latencyTestService
       "cloudlatencytest-pa.googleapis.com"
 
 -- | View monitoring data for all of your Google Cloud and API projects
-monitoringReadonlyScope :: OAuthScope
-monitoringReadonlyScope = "https://www.googleapis.com/auth/monitoring.readonly";
+monitoringReadonlyScope :: Proxy '["https://www.googleapis.com/auth/monitoring.readonly"]
+monitoringReadonlyScope = Proxy;

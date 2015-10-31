@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -258,19 +259,19 @@ deploymentManagerService
       "www.googleapis.com"
 
 -- | View your data across Google Cloud Platform services
-cloudPlatformReadOnlyScope :: OAuthScope
-cloudPlatformReadOnlyScope = "https://www.googleapis.com/auth/cloud-platform.read-only";
+cloudPlatformReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform.read-only"]
+cloudPlatformReadOnlyScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;
 
 -- | View and manage your Google Cloud Platform management resources and
 -- deployment status information
-ndevCloudmanScope :: OAuthScope
-ndevCloudmanScope = "https://www.googleapis.com/auth/ndev.cloudman";
+ndevCloudmanScope :: Proxy '["https://www.googleapis.com/auth/ndev.cloudman"]
+ndevCloudmanScope = Proxy;
 
 -- | View your Google Cloud Platform management resources and deployment
 -- status information
-ndevCloudmanReadonlyScope :: OAuthScope
-ndevCloudmanReadonlyScope = "https://www.googleapis.com/auth/ndev.cloudman.readonly";
+ndevCloudmanReadonlyScope :: Proxy '["https://www.googleapis.com/auth/ndev.cloudman.readonly"]
+ndevCloudmanReadonlyScope = Proxy;

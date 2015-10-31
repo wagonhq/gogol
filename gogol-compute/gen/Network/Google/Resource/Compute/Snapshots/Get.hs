@@ -89,6 +89,10 @@ sgProject
 
 instance GoogleRequest SnapshotsGet where
         type Rs SnapshotsGet = Snapshot
+        type Scopes SnapshotsGet =
+             '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly"]
         requestClient SnapshotsGet{..}
           = go _sgProject _sgSnapshot (Just AltJSON)
               computeService

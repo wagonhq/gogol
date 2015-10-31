@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -180,9 +181,9 @@ autoscalerService
       "www.googleapis.com"
 
 -- | View and manage your Google Compute Engine resources
-computeScope :: OAuthScope
-computeScope = "https://www.googleapis.com/auth/compute";
+computeScope :: Proxy '["https://www.googleapis.com/auth/compute"]
+computeScope = Proxy;
 
 -- | View your Google Compute Engine resources
-computeReadonlyScope :: OAuthScope
-computeReadonlyScope = "https://www.googleapis.com/auth/compute.readonly";
+computeReadonlyScope :: Proxy '["https://www.googleapis.com/auth/compute.readonly"]
+computeReadonlyScope = Proxy;

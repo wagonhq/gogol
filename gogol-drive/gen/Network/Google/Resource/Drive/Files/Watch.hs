@@ -148,6 +148,15 @@ fwRevisionId
 
 instance GoogleRequest FilesWatch where
         type Rs FilesWatch = Channel
+        type Scopes FilesWatch =
+             '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.appdata",
+               "https://www.googleapis.com/auth/drive.apps.readonly",
+               "https://www.googleapis.com/auth/drive.file",
+               "https://www.googleapis.com/auth/drive.metadata",
+               "https://www.googleapis.com/auth/drive.metadata.readonly",
+               "https://www.googleapis.com/auth/drive.photos.readonly",
+               "https://www.googleapis.com/auth/drive.readonly"]
         requestClient FilesWatch{..}
           = go _fwFileId (Just _fwUpdateViewedDate)
               _fwProjection
@@ -163,6 +172,8 @@ instance GoogleRequest FilesWatch where
 instance GoogleRequest (MediaDownload FilesWatch)
          where
         type Rs (MediaDownload FilesWatch) = Stream
+        type Scopes (MediaDownload FilesWatch) =
+             Scopes FilesWatch
         requestClient (MediaDownload FilesWatch{..})
           = go _fwFileId (Just _fwUpdateViewedDate)
               _fwProjection

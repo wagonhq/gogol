@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -130,21 +131,21 @@ appsActivityService
       "www.googleapis.com"
 
 -- | View metadata for files in your Google Drive
-driveMetadataReadonlyScope :: OAuthScope
-driveMetadataReadonlyScope = "https://www.googleapis.com/auth/drive.metadata.readonly";
+driveMetadataReadonlyScope :: Proxy '["https://www.googleapis.com/auth/drive.metadata.readonly"]
+driveMetadataReadonlyScope = Proxy;
 
 -- | View the activity history of your Google Apps
-activityScope :: OAuthScope
-activityScope = "https://www.googleapis.com/auth/activity";
+activityScope :: Proxy '["https://www.googleapis.com/auth/activity"]
+activityScope = Proxy;
 
 -- | View the files in your Google Drive
-driveReadonlyScope :: OAuthScope
-driveReadonlyScope = "https://www.googleapis.com/auth/drive.readonly";
+driveReadonlyScope :: Proxy '["https://www.googleapis.com/auth/drive.readonly"]
+driveReadonlyScope = Proxy;
 
 -- | View and manage the files in your Google Drive
-driveScope :: OAuthScope
-driveScope = "https://www.googleapis.com/auth/drive";
+driveScope :: Proxy '["https://www.googleapis.com/auth/drive"]
+driveScope = Proxy;
 
 -- | View and manage metadata of files in your Google Drive
-driveMetadataScope :: OAuthScope
-driveMetadataScope = "https://www.googleapis.com/auth/drive.metadata";
+driveMetadataScope :: Proxy '["https://www.googleapis.com/auth/drive.metadata"]
+driveMetadataScope = Proxy;

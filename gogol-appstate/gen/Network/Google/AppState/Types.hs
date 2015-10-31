@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -61,5 +62,5 @@ appStateService
       "www.googleapis.com"
 
 -- | View and manage your data for this application
-appstateScope :: OAuthScope
-appstateScope = "https://www.googleapis.com/auth/appstate";
+appstateScope :: Proxy '["https://www.googleapis.com/auth/appstate"]
+appstateScope = Proxy;

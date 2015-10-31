@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -83,5 +84,5 @@ uRLShortenerService
       "www.googleapis.com"
 
 -- | Manage your goo.gl short URLs
-urlshortenerScope :: OAuthScope
-urlshortenerScope = "https://www.googleapis.com/auth/urlshortener";
+urlshortenerScope :: Proxy '["https://www.googleapis.com/auth/urlshortener"]
+urlshortenerScope = Proxy;

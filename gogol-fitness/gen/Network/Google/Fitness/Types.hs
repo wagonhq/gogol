@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -204,25 +205,25 @@ fitnessService
       "www.googleapis.com"
 
 -- | View body sensor information in Google Fit
-fitnessBodyReadScope :: OAuthScope
-fitnessBodyReadScope = "https://www.googleapis.com/auth/fitness.body.read";
+fitnessBodyReadScope :: Proxy '["https://www.googleapis.com/auth/fitness.body.read"]
+fitnessBodyReadScope = Proxy;
 
 -- | View your activity information in Google Fit
-fitnessActivityReadScope :: OAuthScope
-fitnessActivityReadScope = "https://www.googleapis.com/auth/fitness.activity.read";
+fitnessActivityReadScope :: Proxy '["https://www.googleapis.com/auth/fitness.activity.read"]
+fitnessActivityReadScope = Proxy;
 
 -- | View and store your activity information in Google Fit
-fitnessActivityWriteScope :: OAuthScope
-fitnessActivityWriteScope = "https://www.googleapis.com/auth/fitness.activity.write";
+fitnessActivityWriteScope :: Proxy '["https://www.googleapis.com/auth/fitness.activity.write"]
+fitnessActivityWriteScope = Proxy;
 
 -- | View your stored location data in Google Fit
-fitnessLocationReadScope :: OAuthScope
-fitnessLocationReadScope = "https://www.googleapis.com/auth/fitness.location.read";
+fitnessLocationReadScope :: Proxy '["https://www.googleapis.com/auth/fitness.location.read"]
+fitnessLocationReadScope = Proxy;
 
 -- | View and store your location data in Google Fit
-fitnessLocationWriteScope :: OAuthScope
-fitnessLocationWriteScope = "https://www.googleapis.com/auth/fitness.location.write";
+fitnessLocationWriteScope :: Proxy '["https://www.googleapis.com/auth/fitness.location.write"]
+fitnessLocationWriteScope = Proxy;
 
 -- | View and store body sensor data in Google Fit
-fitnessBodyWriteScope :: OAuthScope
-fitnessBodyWriteScope = "https://www.googleapis.com/auth/fitness.body.write";
+fitnessBodyWriteScope :: Proxy '["https://www.googleapis.com/auth/fitness.body.write"]
+fitnessBodyWriteScope = Proxy;

@@ -152,6 +152,10 @@ vgCallback
 
 instance GoogleRequest VariantsGet where
         type Rs VariantsGet = Variant
+        type Scopes VariantsGet =
+             '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/genomics",
+               "https://www.googleapis.com/auth/genomics.readonly"]
         requestClient VariantsGet{..}
           = go _vgVariantId _vgXgafv _vgUploadProtocol
               (Just _vgPp)

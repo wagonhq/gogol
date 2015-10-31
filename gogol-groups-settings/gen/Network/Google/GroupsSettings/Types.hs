@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -65,5 +66,5 @@ groupsSettingsService
       "www.googleapis.com"
 
 -- | View and manage the settings of a Google Apps Group
-appsGroupsSettingsScope :: OAuthScope
-appsGroupsSettingsScope = "https://www.googleapis.com/auth/apps.groups.settings";
+appsGroupsSettingsScope :: Proxy '["https://www.googleapis.com/auth/apps.groups.settings"]
+appsGroupsSettingsScope = Proxy;

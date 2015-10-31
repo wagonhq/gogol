@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -212,13 +213,13 @@ debuggerService
       "clouddebugger.googleapis.com"
 
 -- | Manage cloud debugger
-cloudDebuggerScope :: OAuthScope
-cloudDebuggerScope = "https://www.googleapis.com/auth/cloud_debugger";
+cloudDebuggerScope :: Proxy '["https://www.googleapis.com/auth/cloud_debugger"]
+cloudDebuggerScope = Proxy;
 
 -- | Manage active breakpoints in cloud debugger
-cloudDebugletcontrollerScope :: OAuthScope
-cloudDebugletcontrollerScope = "https://www.googleapis.com/auth/cloud_debugletcontroller";
+cloudDebugletcontrollerScope :: Proxy '["https://www.googleapis.com/auth/cloud_debugletcontroller"]
+cloudDebugletcontrollerScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -190,10 +191,10 @@ monitoringService
       "www.googleapis.com"
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;
 
 -- | View and write monitoring data for all of your Google and third-party
 -- Cloud and API projects
-monitoringScope :: OAuthScope
-monitoringScope = "https://www.googleapis.com/auth/monitoring";
+monitoringScope :: Proxy '["https://www.googleapis.com/auth/monitoring"]
+monitoringScope = Proxy;

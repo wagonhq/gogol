@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -159,9 +160,9 @@ reportsService
       "www.googleapis.com"
 
 -- | View usage reports of Google Apps for your domain
-adminReportsUsageReadonlyScope :: OAuthScope
-adminReportsUsageReadonlyScope = "https://www.googleapis.com/auth/admin.reports.usage.readonly";
+adminReportsUsageReadonlyScope :: Proxy '["https://www.googleapis.com/auth/admin.reports.usage.readonly"]
+adminReportsUsageReadonlyScope = Proxy;
 
 -- | View audit reports of Google Apps for your domain
-adminReportsAuditReadonlyScope :: OAuthScope
-adminReportsAuditReadonlyScope = "https://www.googleapis.com/auth/admin.reports.audit.readonly";
+adminReportsAuditReadonlyScope :: Proxy '["https://www.googleapis.com/auth/admin.reports.audit.readonly"]
+adminReportsAuditReadonlyScope = Proxy;

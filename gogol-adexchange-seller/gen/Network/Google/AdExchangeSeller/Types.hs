@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -189,9 +190,9 @@ adExchangeSellerService
       "www.googleapis.com"
 
 -- | View your Ad Exchange data
-adexchangeSellerReadonlyScope :: OAuthScope
-adexchangeSellerReadonlyScope = "https://www.googleapis.com/auth/adexchange.seller.readonly";
+adexchangeSellerReadonlyScope :: Proxy '["https://www.googleapis.com/auth/adexchange.seller.readonly"]
+adexchangeSellerReadonlyScope = Proxy;
 
 -- | View and manage your Ad Exchange data
-adexchangeSellerScope :: OAuthScope
-adexchangeSellerScope = "https://www.googleapis.com/auth/adexchange.seller";
+adexchangeSellerScope :: Proxy '["https://www.googleapis.com/auth/adexchange.seller"]
+adexchangeSellerScope = Proxy;

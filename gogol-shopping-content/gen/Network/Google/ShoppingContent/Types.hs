@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -1259,5 +1260,5 @@ shoppingContentService
       "www.googleapis.com"
 
 -- | Manage your product listings and accounts for Google Shopping
-contentScope :: OAuthScope
-contentScope = "https://www.googleapis.com/auth/content";
+contentScope :: Proxy '["https://www.googleapis.com/auth/content"]
+contentScope = Proxy;

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -70,9 +71,9 @@ siteVerificationService
       "www.googleapis.com"
 
 -- | Manage your new site verifications with Google
-siteverificationVerifyOnlyScope :: OAuthScope
-siteverificationVerifyOnlyScope = "https://www.googleapis.com/auth/siteverification.verify_only";
+siteverificationVerifyOnlyScope :: Proxy '["https://www.googleapis.com/auth/siteverification.verify_only"]
+siteverificationVerifyOnlyScope = Proxy;
 
 -- | Manage the list of sites and domains you control
-siteverificationScope :: OAuthScope
-siteverificationScope = "https://www.googleapis.com/auth/siteverification";
+siteverificationScope :: Proxy '["https://www.googleapis.com/auth/siteverification"]
+siteverificationScope = Proxy;

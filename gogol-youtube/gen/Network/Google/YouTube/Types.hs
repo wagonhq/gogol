@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -1865,26 +1866,26 @@ youTubeService
       "www.googleapis.com"
 
 -- | Manage your YouTube videos
-youtubeUploadScope :: OAuthScope
-youtubeUploadScope = "https://www.googleapis.com/auth/youtube.upload";
+youtubeUploadScope :: Proxy '["https://www.googleapis.com/auth/youtube.upload"]
+youtubeUploadScope = Proxy;
 
 -- | Manage your YouTube account
-youtubeScope :: OAuthScope
-youtubeScope = "https://www.googleapis.com/auth/youtube";
+youtubeScope :: Proxy '["https://www.googleapis.com/auth/youtube"]
+youtubeScope = Proxy;
 
 -- | View and manage your assets and associated content on YouTube
-youtubepartnerScope :: OAuthScope
-youtubepartnerScope = "https://www.googleapis.com/auth/youtubepartner";
+youtubepartnerScope :: Proxy '["https://www.googleapis.com/auth/youtubepartner"]
+youtubepartnerScope = Proxy;
 
 -- | Manage your YouTube account
-youtubeForceSslScope :: OAuthScope
-youtubeForceSslScope = "https://www.googleapis.com/auth/youtube.force-ssl";
+youtubeForceSslScope :: Proxy '["https://www.googleapis.com/auth/youtube.force-ssl"]
+youtubeForceSslScope = Proxy;
 
 -- | View your YouTube account
-youtubeReadonlyScope :: OAuthScope
-youtubeReadonlyScope = "https://www.googleapis.com/auth/youtube.readonly";
+youtubeReadonlyScope :: Proxy '["https://www.googleapis.com/auth/youtube.readonly"]
+youtubeReadonlyScope = Proxy;
 
 -- | View private information of your YouTube channel relevant during the
 -- audit process with a YouTube partner
-youtubepartnerChannelAuditScope :: OAuthScope
-youtubepartnerChannelAuditScope = "https://www.googleapis.com/auth/youtubepartner-channel-audit";
+youtubepartnerChannelAuditScope :: Proxy '["https://www.googleapis.com/auth/youtubepartner-channel-audit"]
+youtubepartnerChannelAuditScope = Proxy;

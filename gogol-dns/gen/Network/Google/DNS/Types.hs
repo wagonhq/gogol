@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -113,17 +114,17 @@ dNSService
       "www.googleapis.com"
 
 -- | View your DNS records hosted by Google Cloud DNS
-ndevClouddnsReadonlyScope :: OAuthScope
-ndevClouddnsReadonlyScope = "https://www.googleapis.com/auth/ndev.clouddns.readonly";
+ndevClouddnsReadonlyScope :: Proxy '["https://www.googleapis.com/auth/ndev.clouddns.readonly"]
+ndevClouddnsReadonlyScope = Proxy;
 
 -- | View your data across Google Cloud Platform services
-cloudPlatformReadOnlyScope :: OAuthScope
-cloudPlatformReadOnlyScope = "https://www.googleapis.com/auth/cloud-platform.read-only";
+cloudPlatformReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform.read-only"]
+cloudPlatformReadOnlyScope = Proxy;
 
 -- | View and manage your DNS records hosted by Google Cloud DNS
-ndevClouddnsReadwriteScope :: OAuthScope
-ndevClouddnsReadwriteScope = "https://www.googleapis.com/auth/ndev.clouddns.readwrite";
+ndevClouddnsReadwriteScope :: Proxy '["https://www.googleapis.com/auth/ndev.clouddns.readwrite"]
+ndevClouddnsReadwriteScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -176,5 +177,5 @@ playMoviesPartnerService
       "playmoviespartner.googleapis.com"
 
 -- | View the digital assets you publish on Google Play Movies and TV
-playmoviesPartnerReadonlyScope :: OAuthScope
-playmoviesPartnerReadonlyScope = "https://www.googleapis.com/auth/playmovies_partner.readonly";
+playmoviesPartnerReadonlyScope :: Proxy '["https://www.googleapis.com/auth/playmovies_partner.readonly"]
+playmoviesPartnerReadonlyScope = Proxy;

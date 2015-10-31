@@ -91,6 +91,8 @@ mduOrderId
 instance GoogleRequest MarketplaceDealsUpdate where
         type Rs MarketplaceDealsUpdate =
              EditAllOrderDealsResponse
+        type Scopes MarketplaceDealsUpdate =
+             '["https://www.googleapis.com/auth/adexchange.buyer"]
         requestClient MarketplaceDealsUpdate{..}
           = go _mduOrderId (Just AltJSON) _mduPayload
               adExchangeBuyerService

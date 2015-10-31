@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -218,17 +219,17 @@ predictionService
       "www.googleapis.com"
 
 -- | View your data in Google Cloud Storage
-devstorageReadOnlyScope :: OAuthScope
-devstorageReadOnlyScope = "https://www.googleapis.com/auth/devstorage.read_only";
+devstorageReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/devstorage.read_only"]
+devstorageReadOnlyScope = Proxy;
 
 -- | Manage your data in Google Cloud Storage
-devstorageReadWriteScope :: OAuthScope
-devstorageReadWriteScope = "https://www.googleapis.com/auth/devstorage.read_write";
+devstorageReadWriteScope :: Proxy '["https://www.googleapis.com/auth/devstorage.read_write"]
+devstorageReadWriteScope = Proxy;
 
 -- | Manage your data in the Google Prediction API
-predictionScope :: OAuthScope
-predictionScope = "https://www.googleapis.com/auth/prediction";
+predictionScope :: Proxy '["https://www.googleapis.com/auth/prediction"]
+predictionScope = Proxy;
 
 -- | Manage your data and permissions in Google Cloud Storage
-devstorageFullControlScope :: OAuthScope
-devstorageFullControlScope = "https://www.googleapis.com/auth/devstorage.full_control";
+devstorageFullControlScope :: Proxy '["https://www.googleapis.com/auth/devstorage.full_control"]
+devstorageFullControlScope = Proxy;

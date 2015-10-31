@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -145,22 +146,22 @@ youTubeAnalyticsService
       "www.googleapis.com"
 
 -- | Manage your YouTube account
-youtubeScope :: OAuthScope
-youtubeScope = "https://www.googleapis.com/auth/youtube";
+youtubeScope :: Proxy '["https://www.googleapis.com/auth/youtube"]
+youtubeScope = Proxy;
 
 -- | View YouTube Analytics reports for your YouTube content
-ytAnalyticsReadonlyScope :: OAuthScope
-ytAnalyticsReadonlyScope = "https://www.googleapis.com/auth/yt-analytics.readonly";
+ytAnalyticsReadonlyScope :: Proxy '["https://www.googleapis.com/auth/yt-analytics.readonly"]
+ytAnalyticsReadonlyScope = Proxy;
 
 -- | View and manage your assets and associated content on YouTube
-youtubepartnerScope :: OAuthScope
-youtubepartnerScope = "https://www.googleapis.com/auth/youtubepartner";
+youtubepartnerScope :: Proxy '["https://www.googleapis.com/auth/youtubepartner"]
+youtubepartnerScope = Proxy;
 
 -- | View monetary and non-monetary YouTube Analytics reports for your
 -- YouTube content
-ytAnalyticsMonetaryReadonlyScope :: OAuthScope
-ytAnalyticsMonetaryReadonlyScope = "https://www.googleapis.com/auth/yt-analytics-monetary.readonly";
+ytAnalyticsMonetaryReadonlyScope :: Proxy '["https://www.googleapis.com/auth/yt-analytics-monetary.readonly"]
+ytAnalyticsMonetaryReadonlyScope = Proxy;
 
 -- | View your YouTube account
-youtubeReadonlyScope :: OAuthScope
-youtubeReadonlyScope = "https://www.googleapis.com/auth/youtube.readonly";
+youtubeReadonlyScope :: Proxy '["https://www.googleapis.com/auth/youtube.readonly"]
+youtubeReadonlyScope = Proxy;

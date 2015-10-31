@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -201,5 +202,5 @@ adSenseHostService
       "www.googleapis.com"
 
 -- | View and manage your AdSense host data and associated accounts
-adsensehostScope :: OAuthScope
-adsensehostScope = "https://www.googleapis.com/auth/adsensehost";
+adsensehostScope :: Proxy '["https://www.googleapis.com/auth/adsensehost"]
+adsensehostScope = Proxy;

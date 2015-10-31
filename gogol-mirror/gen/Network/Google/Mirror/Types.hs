@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -218,9 +219,9 @@ mirrorService
       "www.googleapis.com"
 
 -- | View and manage your Glass timeline
-glassTimelineScope :: OAuthScope
-glassTimelineScope = "https://www.googleapis.com/auth/glass.timeline";
+glassTimelineScope :: Proxy '["https://www.googleapis.com/auth/glass.timeline"]
+glassTimelineScope = Proxy;
 
 -- | View your location
-glassLocationScope :: OAuthScope
-glassLocationScope = "https://www.googleapis.com/auth/glass.location";
+glassLocationScope :: Proxy '["https://www.googleapis.com/auth/glass.location"]
+glassLocationScope = Proxy;

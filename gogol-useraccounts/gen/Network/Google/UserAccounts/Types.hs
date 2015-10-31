@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -203,17 +204,17 @@ userAccountsService
       "www.googleapis.com"
 
 -- | View your data across Google Cloud Platform services
-cloudPlatformReadOnlyScope :: OAuthScope
-cloudPlatformReadOnlyScope = "https://www.googleapis.com/auth/cloud-platform.read-only";
+cloudPlatformReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform.read-only"]
+cloudPlatformReadOnlyScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;
 
 -- | Manage your Google Cloud User Accounts
-cloudUseraccountsScope :: OAuthScope
-cloudUseraccountsScope = "https://www.googleapis.com/auth/cloud.useraccounts";
+cloudUseraccountsScope :: Proxy '["https://www.googleapis.com/auth/cloud.useraccounts"]
+cloudUseraccountsScope = Proxy;
 
 -- | View your Google Cloud User Accounts
-cloudUseraccountsReadonlyScope :: OAuthScope
-cloudUseraccountsReadonlyScope = "https://www.googleapis.com/auth/cloud.useraccounts.readonly";
+cloudUseraccountsReadonlyScope :: Proxy '["https://www.googleapis.com/auth/cloud.useraccounts.readonly"]
+cloudUseraccountsReadonlyScope = Proxy;

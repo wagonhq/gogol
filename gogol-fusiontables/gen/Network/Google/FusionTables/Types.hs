@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -238,9 +239,9 @@ fusionTablesService
       "www.googleapis.com"
 
 -- | View your Fusion Tables
-fusiontablesReadonlyScope :: OAuthScope
-fusiontablesReadonlyScope = "https://www.googleapis.com/auth/fusiontables.readonly";
+fusiontablesReadonlyScope :: Proxy '["https://www.googleapis.com/auth/fusiontables.readonly"]
+fusiontablesReadonlyScope = Proxy;
 
 -- | Manage your Fusion Tables
-fusiontablesScope :: OAuthScope
-fusiontablesScope = "https://www.googleapis.com/auth/fusiontables";
+fusiontablesScope :: Proxy '["https://www.googleapis.com/auth/fusiontables"]
+fusiontablesScope = Proxy;

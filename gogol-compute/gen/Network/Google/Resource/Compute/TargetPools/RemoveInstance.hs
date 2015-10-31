@@ -116,6 +116,9 @@ tpriRegion
 instance GoogleRequest TargetPoolsRemoveInstance
          where
         type Rs TargetPoolsRemoveInstance = Operation
+        type Scopes TargetPoolsRemoveInstance =
+             '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute"]
         requestClient TargetPoolsRemoveInstance{..}
           = go _tpriProject _tpriRegion _tpriTargetPool
               (Just AltJSON)

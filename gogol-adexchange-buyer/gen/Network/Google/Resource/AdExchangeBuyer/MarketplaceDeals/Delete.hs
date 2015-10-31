@@ -91,6 +91,8 @@ mddOrderId
 instance GoogleRequest MarketplaceDealsDelete where
         type Rs MarketplaceDealsDelete =
              DeleteOrderDealsResponse
+        type Scopes MarketplaceDealsDelete =
+             '["https://www.googleapis.com/auth/adexchange.buyer"]
         requestClient MarketplaceDealsDelete{..}
           = go _mddOrderId (Just AltJSON) _mddPayload
               adExchangeBuyerService

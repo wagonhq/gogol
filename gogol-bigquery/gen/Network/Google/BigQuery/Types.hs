@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -480,29 +481,29 @@ bigQueryService
       "www.googleapis.com"
 
 -- | View your data across Google Cloud Platform services
-cloudPlatformReadOnlyScope :: OAuthScope
-cloudPlatformReadOnlyScope = "https://www.googleapis.com/auth/cloud-platform.read-only";
+cloudPlatformReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform.read-only"]
+cloudPlatformReadOnlyScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;
 
 -- | View your data in Google Cloud Storage
-devstorageReadOnlyScope :: OAuthScope
-devstorageReadOnlyScope = "https://www.googleapis.com/auth/devstorage.read_only";
+devstorageReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/devstorage.read_only"]
+devstorageReadOnlyScope = Proxy;
 
 -- | Insert data into Google BigQuery
-bigqueryInsertdataScope :: OAuthScope
-bigqueryInsertdataScope = "https://www.googleapis.com/auth/bigquery.insertdata";
+bigqueryInsertdataScope :: Proxy '["https://www.googleapis.com/auth/bigquery.insertdata"]
+bigqueryInsertdataScope = Proxy;
 
 -- | Manage your data in Google Cloud Storage
-devstorageReadWriteScope :: OAuthScope
-devstorageReadWriteScope = "https://www.googleapis.com/auth/devstorage.read_write";
+devstorageReadWriteScope :: Proxy '["https://www.googleapis.com/auth/devstorage.read_write"]
+devstorageReadWriteScope = Proxy;
 
 -- | View and manage your data in Google BigQuery
-bigqueryScope :: OAuthScope
-bigqueryScope = "https://www.googleapis.com/auth/bigquery";
+bigqueryScope :: Proxy '["https://www.googleapis.com/auth/bigquery"]
+bigqueryScope = Proxy;
 
 -- | Manage your data and permissions in Google Cloud Storage
-devstorageFullControlScope :: OAuthScope
-devstorageFullControlScope = "https://www.googleapis.com/auth/devstorage.full_control";
+devstorageFullControlScope :: Proxy '["https://www.googleapis.com/auth/devstorage.full_control"]
+devstorageFullControlScope = Proxy;

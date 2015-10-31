@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -164,17 +165,17 @@ replicaPoolService
       "www.googleapis.com"
 
 -- | View and manage your Google Compute Engine resources
-computeScope :: OAuthScope
-computeScope = "https://www.googleapis.com/auth/compute";
+computeScope :: Proxy '["https://www.googleapis.com/auth/compute"]
+computeScope = Proxy;
 
 -- | View your data across Google Cloud Platform services
-cloudPlatformReadOnlyScope :: OAuthScope
-cloudPlatformReadOnlyScope = "https://www.googleapis.com/auth/cloud-platform.read-only";
+cloudPlatformReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform.read-only"]
+cloudPlatformReadOnlyScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;
 
 -- | View your Google Compute Engine resources
-computeReadonlyScope :: OAuthScope
-computeReadonlyScope = "https://www.googleapis.com/auth/compute.readonly";
+computeReadonlyScope :: Proxy '["https://www.googleapis.com/auth/compute.readonly"]
+computeReadonlyScope = Proxy;

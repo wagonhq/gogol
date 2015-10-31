@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -257,5 +258,5 @@ androidEnterpriseService
       "www.googleapis.com"
 
 -- | Manage corporate Android devices
-androidenterpriseScope :: OAuthScope
-androidenterpriseScope = "https://www.googleapis.com/auth/androidenterprise";
+androidenterpriseScope :: Proxy '["https://www.googleapis.com/auth/androidenterprise"]
+androidenterpriseScope = Proxy;

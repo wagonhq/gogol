@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -411,9 +412,9 @@ sQLAdminService
       "www.googleapis.com"
 
 -- | Manage your Google SQL Service instances
-sqlserviceAdminScope :: OAuthScope
-sqlserviceAdminScope = "https://www.googleapis.com/auth/sqlservice.admin";
+sqlserviceAdminScope :: Proxy '["https://www.googleapis.com/auth/sqlservice.admin"]
+sqlserviceAdminScope = Proxy;
 
 -- | View and manage your data across Google Cloud Platform services
-cloudPlatformScope :: OAuthScope
-cloudPlatformScope = "https://www.googleapis.com/auth/cloud-platform";
+cloudPlatformScope :: Proxy '["https://www.googleapis.com/auth/cloud-platform"]
+cloudPlatformScope = Proxy;

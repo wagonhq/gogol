@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -582,43 +583,43 @@ plusDomainsService
       "www.googleapis.com"
 
 -- | View your basic profile info
-userinfoProfileScope :: OAuthScope
-userinfoProfileScope = "https://www.googleapis.com/auth/userinfo.profile";
+userinfoProfileScope :: Proxy '["https://www.googleapis.com/auth/userinfo.profile"]
+userinfoProfileScope = Proxy;
 
 -- | Know your basic profile info and list of people in your circles.
-plusLoginScope :: OAuthScope
-plusLoginScope = "https://www.googleapis.com/auth/plus.login";
+plusLoginScope :: Proxy '["https://www.googleapis.com/auth/plus.login"]
+plusLoginScope = Proxy;
 
 -- | View your own Google+ profile and profiles visible to you
-plusProfilesReadScope :: OAuthScope
-plusProfilesReadScope = "https://www.googleapis.com/auth/plus.profiles.read";
+plusProfilesReadScope :: Proxy '["https://www.googleapis.com/auth/plus.profiles.read"]
+plusProfilesReadScope = Proxy;
 
 -- | View your email address
-userinfoEmailScope :: OAuthScope
-userinfoEmailScope = "https://www.googleapis.com/auth/userinfo.email";
+userinfoEmailScope :: Proxy '["https://www.googleapis.com/auth/userinfo.email"]
+userinfoEmailScope = Proxy;
 
 -- | Manage your Google+ posts, comments, and stream
-plusStreamWriteScope :: OAuthScope
-plusStreamWriteScope = "https://www.googleapis.com/auth/plus.stream.write";
+plusStreamWriteScope :: Proxy '["https://www.googleapis.com/auth/plus.stream.write"]
+plusStreamWriteScope = Proxy;
 
 -- | View your Google+ posts, comments, and stream
-plusStreamReadScope :: OAuthScope
-plusStreamReadScope = "https://www.googleapis.com/auth/plus.stream.read";
+plusStreamReadScope :: Proxy '["https://www.googleapis.com/auth/plus.stream.read"]
+plusStreamReadScope = Proxy;
 
 -- | Know who you are on Google
-plusMeScope :: OAuthScope
-plusMeScope = "https://www.googleapis.com/auth/plus.me";
+plusMeScope :: Proxy '["https://www.googleapis.com/auth/plus.me"]
+plusMeScope = Proxy;
 
 -- | View your circles and the people and pages in them
-plusCirclesReadScope :: OAuthScope
-plusCirclesReadScope = "https://www.googleapis.com/auth/plus.circles.read";
+plusCirclesReadScope :: Proxy '["https://www.googleapis.com/auth/plus.circles.read"]
+plusCirclesReadScope = Proxy;
 
 -- | Send your photos and videos to Google+
-plusMediaUploadScope :: OAuthScope
-plusMediaUploadScope = "https://www.googleapis.com/auth/plus.media.upload";
+plusMediaUploadScope :: Proxy '["https://www.googleapis.com/auth/plus.media.upload"]
+plusMediaUploadScope = Proxy;
 
 -- | Manage your circles and add people and pages. People and pages you add
 -- to your circles will be notified. Others may see this information
 -- publicly. People you add to circles can use Hangouts with you.
-plusCirclesWriteScope :: OAuthScope
-plusCirclesWriteScope = "https://www.googleapis.com/auth/plus.circles.write";
+plusCirclesWriteScope :: Proxy '["https://www.googleapis.com/auth/plus.circles.write"]
+plusCirclesWriteScope = Proxy;

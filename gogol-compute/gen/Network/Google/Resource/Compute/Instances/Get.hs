@@ -100,6 +100,10 @@ igInstance
 
 instance GoogleRequest InstancesGet where
         type Rs InstancesGet = Instance
+        type Scopes InstancesGet =
+             '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly"]
         requestClient InstancesGet{..}
           = go _igProject _igZone _igInstance (Just AltJSON)
               computeService

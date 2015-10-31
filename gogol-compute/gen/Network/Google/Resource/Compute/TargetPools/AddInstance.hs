@@ -115,6 +115,9 @@ tpaiRegion
 
 instance GoogleRequest TargetPoolsAddInstance where
         type Rs TargetPoolsAddInstance = Operation
+        type Scopes TargetPoolsAddInstance =
+             '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute"]
         requestClient TargetPoolsAddInstance{..}
           = go _tpaiProject _tpaiRegion _tpaiTargetPool
               (Just AltJSON)

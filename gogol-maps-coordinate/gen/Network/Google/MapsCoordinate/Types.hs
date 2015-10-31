@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
@@ -178,9 +179,9 @@ mapsCoordinateService
       "www.googleapis.com"
 
 -- | View and manage your Google Maps Coordinate jobs
-coordinateScope :: OAuthScope
-coordinateScope = "https://www.googleapis.com/auth/coordinate";
+coordinateScope :: Proxy '["https://www.googleapis.com/auth/coordinate"]
+coordinateScope = Proxy;
 
 -- | View your Google Coordinate jobs
-coordinateReadonlyScope :: OAuthScope
-coordinateReadonlyScope = "https://www.googleapis.com/auth/coordinate.readonly";
+coordinateReadonlyScope :: Proxy '["https://www.googleapis.com/auth/coordinate.readonly"]
+coordinateReadonlyScope = Proxy;
