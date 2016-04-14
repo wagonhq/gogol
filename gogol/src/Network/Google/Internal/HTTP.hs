@@ -1,6 +1,7 @@
 {-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
@@ -19,6 +20,10 @@ import           Control.Lens                      ((%~), (&))
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class            (MonadIO)
 import           Control.Monad.Trans.Resource      (MonadResource (..))
+import           Data.ByteString.Lazy              (fromChunks)
+import           Data.Conduit                      (($$+-))
+import qualified Data.Conduit                      as Conduit
+import qualified Data.Conduit.List                 as Conduit
 import           Data.Default.Class                (Default (..))
 import           Data.Monoid                       (Dual (..), Endo (..), (<>))
 import qualified Data.Text.Encoding                as Text
@@ -30,6 +35,7 @@ import           Network.Google.Env                (Env (..))
 import           Network.Google.Internal.Logger    (logDebug)
 import           Network.Google.Internal.Multipart
 import           Network.Google.Types
+import qualified Network.HTTP.Client               as Client
 import qualified Network.HTTP.Client.Conduit       as Client
 import           Network.HTTP.Conduit
 import           Network.HTTP.Media                (RenderHeader (..))
@@ -64,6 +70,8 @@ perform Env{..} x = catches go handlers
 
         logDebug _envLogger rs -- debug:ClientResponse
 
+        statusCheck rs
+
         r       <- _cliResponse (responseBody rs)
 
         pure $! case r of
@@ -80,7 +88,7 @@ perform Env{..} x = catches go handlers
         { Client.host            = _svcHost
         , Client.port            = _svcPort
         , Client.secure          = _svcSecure
-        , Client.checkStatus     = status
+        , Client.checkStatus     = \_ _ _ -> Nothing
         , Client.responseTimeout = timeout
         , Client.method          = _cliMethod
         , Client.path            = path
@@ -97,14 +105,17 @@ perform Env{..} x = catches go handlers
          . LText.toStrict
          $ Build.toLazyText (_svcPath <> _rqPath)
 
-    status s hs _
-         | _cliCheck s = Nothing
-         | otherwise   = Just . toException . ServiceError $ ServiceError'
-             { _serviceId      = _svcId
-             , _serviceStatus  = s
-             , _serviceHeaders = hs
-             , _serviceBody    = Nothing
-             }
+    statusCheck rs =
+        if | _cliCheck (responseStatus rs) ->
+                return ()
+           | otherwise -> do
+                body <- fromChunks <$> (responseBody rs $$+- Conduit.consume)
+                throwM . toException . ServiceError $ ServiceError'
+                    { _serviceId      = _svcId
+                    , _serviceStatus  = responseStatus rs
+                    , _serviceHeaders = responseHeaders rs
+                    , _serviceBody    = Just body
+                    }
 
     timeout = microseconds <$> _svcTimeout
 
